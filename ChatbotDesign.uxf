@@ -14,7 +14,9 @@
 -input: Scanner
 -myChatbot : Chatbot
 --
-+ start() : void</panel_attributes>
++ start() : void
+
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -27,7 +29,8 @@
     </coordinates>
     <panel_attributes>chat.controller :: Runner
 --
-psvm</panel_attributes>
+psvm
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -42,7 +45,7 @@ psvm</panel_attributes>
 --
 
 --
-</panel_attributes>
+bg=#124eefef</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
