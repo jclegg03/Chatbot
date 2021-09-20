@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>80</y>
+      <w>270</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: Controller
+--
+-input: Scanner
+-myChatbot : Chatbot
+--
++ start() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>60</y>
+      <w>190</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: Runner
+--
+psvm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>280</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>chat.model :: Chatbot
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
