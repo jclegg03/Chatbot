@@ -17,5 +17,22 @@ public class Controller
 	public void start()
 	{
 		System.out.println(myChatbot);
+		System.out.println("What do you want to talk about?");
+		String response = input.nextLine();
+		
+		while (! response.contentEquals("quit"))
+		{
+			System.out.println(interactWithChatbot(response));
+			System.out.println("Type quit to quit");
+			response = input.nextLine();
+		}
+	}
+
+	public String interactWithChatbot(String received)
+	{
+		String message = "";
+		message += myChatbot.processText(received) + "\n";
+		
+		return message;
 	}
 }

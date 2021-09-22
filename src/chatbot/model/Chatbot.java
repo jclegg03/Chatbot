@@ -16,7 +16,7 @@ public class Chatbot
 	public String processText(String text)
 	{
 		String answer = "you said: ";
-		answer += text;
+		answer += text + "\n";
 		return answer;
 	}
 	
