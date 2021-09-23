@@ -14,7 +14,9 @@
 -input: Scanner
 -myChatbot : Chatbot
 --
++ Controller() : constructor
 + start() : void
++ interactWithChatbot(String) : String
 
 bg=orange</panel_attributes>
     <additional_attributes/>
@@ -43,8 +45,12 @@ bg=green</panel_attributes>
     </coordinates>
     <panel_attributes>chat.model :: Chatbot
 --
-
+-name : String
 --
++ get(...)/set(...)
++ Chatbot(String) : constructor
++ toString() : String
++ processText(String) : String
 bg=#124eefef</panel_attributes>
     <additional_attributes/>
   </element>
