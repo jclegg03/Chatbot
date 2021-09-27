@@ -23,7 +23,7 @@ public class Controller
 		while (! response.contentEquals("quit"))
 		{
 			System.out.println(interactWithChatbot(response));
-			System.out.println("Type quit to quit");
+			System.out.println("Type quit to quit.");
 			response = input.nextLine();
 		}
 	}

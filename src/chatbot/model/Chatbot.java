@@ -1,5 +1,7 @@
 package chatbot.model;
 
+import java.time.LocalDateTime;
+
 public class Chatbot
 {
 	private String name;
@@ -15,11 +17,45 @@ public class Chatbot
 	}
 	public String processText(String text)
 	{
-		String answer = "you said: ";
+		String answer = "You said: ";
 		answer += text + "\n";
+		answer += getDate() + "\n";
 		return answer;
 	}
 	
+	public String sayGreeting()
+	{
+		String greeting = "";
+		
+		return greeting;
+	}
+	public String getTime()
+	{
+		String time = "";
+		
+		return time;
+	}
+	public String getDate()
+	{
+		String date = "The date is ";
+		
+		LocalDateTime currentDate = LocalDateTime.now();
+		String dayOfWeek = currentDate.getDayOfWeek().toString();
+		char dayCharOne = dayOfWeek.charAt(0);
+		dayOfWeek = dayOfWeek.substring(1, dayOfWeek.length()).toLowerCase();
+		dayOfWeek = dayCharOne + dayOfWeek + ", the ";
+		
+		String day = currentDate.getDayOfMonth() + " of ";
+		String month = currentDate.getMonth().toString();
+		char monthCharOne = month.charAt(0);
+		month = month.substring(1, month.length()).toLowerCase();
+		month = monthCharOne + month;
+		
+		date += dayOfWeek + day + month + ".";
+		
+		return date;
+	}
+
 	@Override
 	public String toString()
 	{
