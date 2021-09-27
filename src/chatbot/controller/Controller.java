@@ -31,7 +31,7 @@ public class Controller
 	public String interactWithChatbot(String received)
 	{
 		String message = "";
-		message += myChatbot.processText(received) + "\n";
+		message += myChatbot.processText(received);
 		
 		return message;
 	}
