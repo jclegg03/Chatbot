@@ -31,7 +31,19 @@ public class Chatbot
 	}
 	public String getTime()
 	{
-		String time = "";
+		String time = "The time is ";
+		
+		LocalDateTime currentTime = LocalDateTime.now();
+		int hour = currentTime.getHour();
+		int minute = currentTime.getMinute();
+		if(minute == 0)
+		{
+			time += hour + ":00";
+		}
+		else
+		{
+			time += hour + ":" + minute;
+		}
 		
 		return time;
 	}
