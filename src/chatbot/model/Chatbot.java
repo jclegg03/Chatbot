@@ -8,20 +8,25 @@ public class Chatbot
 	private String name;
 	private int greetingCount;
 	private int farewellCount;
+	private int kindnessCount;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.greetingCount = 0;
-		this.farewellCount = 0;
+		this.farewellCount = 4;
+		this.kindnessCount = 0;
 	}
 	
 	public String processText(String text)
 	{
 		String answer = sayGreeting() + "\nYou said: ";
 		answer += text + "\n";
+		if(isPolite(text))
+		{
+			answer += sayKindPhrase();
+		}
 		answer += sayFarewell() + "\n";
-		
 		if (text.toLowerCase().indexOf("date") >= 0)
 		{
 			answer += getDate();
@@ -35,6 +40,49 @@ public class Chatbot
 		return answer;
 	}
 
+	
+	public String sayKindPhrase()
+	{
+		String kindPhrase = "";
+		ArrayList <String> kindPhrases = new ArrayList <String>();
+		kindPhrases.add("Thank you for your kind words.");
+		kindPhrases.add("You have exceptional manners.");
+		kindPhrases.add("You are very nice.");
+		
+		kindPhrase = kindPhrases.get(kindnessCount);
+		kindnessCount++;
+		if (kindnessCount > kindPhrases.size() - 1)
+		{
+			kindnessCount = 0;
+		}
+		
+		kindPhrase += "\n";
+		return kindPhrase;
+	}
+	public boolean isPolitical(String text)
+	{
+		boolean political = false;
+		String analyze = text.toLowerCase();
+		
+		if (analyze.contains("politics") || analyze.contains("republican") || analyze.contains("democrat") || analyze.contains("election")
+				|| analyze.contains("biden"))
+		{
+			political = true;
+		}
+		
+		return political;
+	}
+	public boolean isPolite(String text)
+	{
+		boolean polite = false;
+		String check = text.toLowerCase();
+		if(check.contains("please") || check.contains("thank you"))
+		{
+			polite = true;
+		}
+		
+		return polite;
+	}
 	public String sayFarewell()
 	{
 		String farewell = "";
