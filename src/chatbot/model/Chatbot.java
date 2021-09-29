@@ -1,31 +1,47 @@
 package chatbot.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Chatbot
 {
 	private String name;
+	private int greetingCount;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
+		this.greetingCount = 0;
+	}
+	
+	public String processText(String text)
+	{
+		String answer = sayGreeting() + "\nYou said: ";
+		answer += text + "\n";
+		answer += getDate() + "\n";
+		return answer;
 	}
 	
 	public String getName()
 	{
 		return this.name;
 	}
-	public String processText(String text)
-	{
-		String answer = "You said: ";
-		answer += text + "\n";
-		answer += getDate() + "\n";
-		return answer;
-	}
-	
 	public String sayGreeting()
 	{
 		String greeting = "";
+		ArrayList <String> greetings = new ArrayList <String>();
+		greetings.add("Hello there!");
+		greetings.add("Good day!");
+		greetings.add("Greetings!");
+		greetings.add("Felicitations!");
+		greetings.add("Salutations!");
+		
+		greeting = greetings.get(greetingCount);
+		greetingCount++;
+		if (greetingCount == 5)
+		{
+			greetingCount = 0;
+		}
 		
 		return greeting;
 	}
