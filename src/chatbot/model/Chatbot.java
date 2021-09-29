@@ -127,7 +127,7 @@ public class Chatbot
 	@Override
 	public String toString()
 	{
-		String response = "Hi, I am a chatbot. ";
+		String response = sayGreeting() + " I am a chatbot. ";
 		response += this.getName();
 		response += " is my name.";
 		return response;

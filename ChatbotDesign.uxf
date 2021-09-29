@@ -45,7 +45,9 @@ bg=green</panel_attributes>
     </coordinates>
     <panel_attributes>chat.model :: Chatbot
 --
--name : String
+- name : String
+- greetingCount : int
+- farewellCount : int
 --
 + get(...)/set(...)
 + Chatbot(String) : constructor
