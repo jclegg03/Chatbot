@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Chatbot
-{
+{	
 	private String name;
 	private int greetingCount;
 	private int farewellCount;
@@ -13,7 +13,7 @@ public class Chatbot
 	{
 		this.name = name;
 		this.greetingCount = 0;
-		this.farewellCount = 4;
+		this.farewellCount = 0;
 	}
 	
 	public String processText(String text)
@@ -21,7 +21,17 @@ public class Chatbot
 		String answer = sayGreeting() + "\nYou said: ";
 		answer += text + "\n";
 		answer += sayFarewell() + "\n";
-		answer += getDate() + " at " + getTime() + "\n";
+		
+		if (text.toLowerCase().indexOf("date") >= 0)
+		{
+			answer += getDate();
+		}
+		
+		if (text.toUpperCase().indexOf("TIME") >= 0)
+		{
+			answer += getTime();
+		}
+//		answer += getDate() + " at " + getTime() + "\n";
 		return answer;
 	}
 
@@ -38,7 +48,7 @@ public class Chatbot
 		farewellCount--;
 		if (farewellCount == -1)
 		{
-			farewellCount = 4;
+			farewellCount = farewells.size() - 1;
 		}
 		
 		
@@ -60,7 +70,7 @@ public class Chatbot
 		
 		greeting = greetings.get(greetingCount);
 		greetingCount++;
-		if (greetingCount == 5)
+		if (greetingCount == greetings.size())
 		{
 			greetingCount = 0;
 		}
@@ -69,12 +79,12 @@ public class Chatbot
 	}
 	public String getTime()
 	{
-		String time = "the time: ";
+		String time = "The time is ";
 		String ampm = " AM";
 		
 		LocalDateTime currentTime = LocalDateTime.now();
 		int hour = currentTime.getHour();
-		if (hour>12)
+		if (hour>12 && hour != 24)
 		{
 			hour -= 12;
 			ampm = " PM";
@@ -83,16 +93,19 @@ public class Chatbot
 		{
 			ampm = " PM";
 		}
-		
+		if (hour == 24)
+		{
+			hour -= 12;
+		}
 		
 		int minute = currentTime.getMinute();
-		if(minute == 0)
+		if(minute <= 9)
 		{
-			time += hour + ":00";
+			time += hour + ":0" + minute + ampm + ".\n";
 		}
 		else
 		{
-			time += hour + ":" + minute + ampm + ".";
+			time += hour + ":" + minute + ampm + ".\n";
 		}
 		
 		return time;
@@ -131,7 +144,7 @@ public class Chatbot
 		month = month.substring(1, month.length()).toLowerCase();
 		month = monthCharOne + month;
 		
-		date += dayOfWeek + day + month;
+		date += dayOfWeek + day + month + ".\n";
 		
 		return date;
 	}
