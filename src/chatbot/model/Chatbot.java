@@ -57,7 +57,25 @@ public class Chatbot
 		dayOfWeek = dayOfWeek.substring(1, dayOfWeek.length()).toLowerCase();
 		dayOfWeek = dayCharOne + dayOfWeek + ", the ";
 		
-		String day = currentDate.getDayOfMonth() + " of ";
+		int dayOfMonth = currentDate.getDayOfMonth();
+		String day = "";
+		if (dayOfMonth == 1 || dayOfMonth == 21 || dayOfMonth == 31)
+		{
+			day = dayOfMonth + "st";
+		}
+		else if (dayOfMonth == 2 || dayOfMonth == 22)
+		{
+			day = dayOfMonth + "nd";
+		}
+		else if (dayOfMonth == 3 || dayOfMonth == 23)
+		{
+			day = dayOfMonth + "rd";
+		}
+		else
+		{
+			day = dayOfMonth + "th";
+		}
+		day += " of ";
 		String month = currentDate.getMonth().toString();
 		char monthCharOne = month.charAt(0);
 		month = month.substring(1, month.length()).toLowerCase();
