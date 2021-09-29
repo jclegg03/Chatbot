@@ -7,21 +7,43 @@ public class Chatbot
 {
 	private String name;
 	private int greetingCount;
+	private int farewellCount;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.greetingCount = 0;
+		this.farewellCount = 4;
 	}
 	
 	public String processText(String text)
 	{
 		String answer = sayGreeting() + "\nYou said: ";
 		answer += text + "\n";
+		answer += sayFarewell() + "\n";
 		answer += getDate() + "\n";
 		return answer;
 	}
-	
+
+	public String sayFarewell()
+	{
+		String farewell = "";
+		ArrayList <String> farewells = new ArrayList <String>();
+		farewells.add("Goodbye!");
+		farewells.add("Have a good day!");
+		farewells.add("See you later!");
+		farewells.add("I'll see ya in another life, brother!");
+		farewells.add("Until we meet again.");
+		farewell = farewells.get(farewellCount);
+		farewellCount--;
+		if (farewellCount == -1)
+		{
+			farewellCount = 4;
+		}
+		
+		
+		return farewell;
+	}
 	public String getName()
 	{
 		return this.name;
