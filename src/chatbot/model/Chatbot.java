@@ -21,7 +21,7 @@ public class Chatbot
 		String answer = sayGreeting() + "\nYou said: ";
 		answer += text + "\n";
 		answer += sayFarewell() + "\n";
-		answer += getDate() + "\n";
+		answer += getDate() + " at " + getTime() + "\n";
 		return answer;
 	}
 
@@ -69,10 +69,22 @@ public class Chatbot
 	}
 	public String getTime()
 	{
-		String time = "The time is ";
+		String time = "the time: ";
+		String ampm = " AM";
 		
 		LocalDateTime currentTime = LocalDateTime.now();
 		int hour = currentTime.getHour();
+		if (hour>12)
+		{
+			hour -= 12;
+			ampm = " PM";
+		}
+		if (hour == 12)
+		{
+			ampm = " PM";
+		}
+		
+		
 		int minute = currentTime.getMinute();
 		if(minute == 0)
 		{
@@ -80,7 +92,7 @@ public class Chatbot
 		}
 		else
 		{
-			time += hour + ":" + minute;
+			time += hour + ":" + minute + ampm + ".";
 		}
 		
 		return time;
@@ -119,7 +131,7 @@ public class Chatbot
 		month = month.substring(1, month.length()).toLowerCase();
 		month = monthCharOne + month;
 		
-		date += dayOfWeek + day + month + ".";
+		date += dayOfWeek + day + month;
 		
 		return date;
 	}
