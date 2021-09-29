@@ -26,6 +26,10 @@ public class Chatbot
 		{
 			answer += sayKindPhrase();
 		}
+		if(isPolitical(text))
+		{
+			answer += "How political of you!\n";
+		}
 		answer += sayFarewell() + "\n";
 		if (text.toLowerCase().indexOf("date") >= 0)
 		{
