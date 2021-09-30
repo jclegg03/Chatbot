@@ -40,7 +40,6 @@ public class Chatbot
 		{
 			answer += getTime();
 		}
-//		answer += getDate() + " at " + getTime() + "\n";
 		return answer;
 	}
 
