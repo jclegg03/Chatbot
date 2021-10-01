@@ -59,6 +59,9 @@ public class Chatbot
 		topics.add("Are cat videos funny?");
 		topics.add("What is your Star Wars movie?");
 		
+		int random = (int)(Math.random() * topics.size());
+		topic = topics.get(random);
+		
 		return topic;
 	}
 	public String sayKindPhrase()
@@ -109,12 +112,9 @@ public class Chatbot
 		farewells.add("I'll see ya in another life, brother!");
 		farewells.add("Until we meet again.");
 		farewell = farewells.get(farewellCount);
-		farewellCount--;
-		if (farewellCount == -1)
-		{
-			farewellCount = farewells.size() - 1;
-		}
 		
+		farewellCount = (int)(Math.random() * farewells.size());
+		farewell = farewells.get(farewellCount);
 		
 		return farewell;
 	}
@@ -132,12 +132,8 @@ public class Chatbot
 		greetings.add("Felicitations!");
 		greetings.add("Salutations!");
 		
+		greetingCount = (int)(Math.random() * greetings.size());
 		greeting = greetings.get(greetingCount);
-		greetingCount++;
-		if (greetingCount == greetings.size())
-		{
-			greetingCount = 0;
-		}
 		
 		return greeting;
 	}
