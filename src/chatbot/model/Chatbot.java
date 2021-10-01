@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class Chatbot
 {	
 	private String name;
+	private int quiet;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
+		this.quiet = 0;
 	}
 	
 	public String processText(String text)
@@ -34,9 +36,29 @@ public class Chatbot
 		{
 			answer += getTime();
 		}
+		
+		answer += getRandomTopic();
+		
+		if (text.contentEquals(""))
+		{
+			answer += quiet();
+		}
+		
 		return answer;
 	}
 
+	public String quiet()
+	{
+		String result = "";
+		quiet += 1;
+		if (quiet >= 5)
+		{
+			result += "Please talk to me!";
+		}
+		result += "\n";
+		
+		return result;
+	}
 	public String getRandomTopic()
 	{
 		String topic = "";
@@ -55,6 +77,7 @@ public class Chatbot
 		
 		int random = (int)(Math.random() * topics.size());
 		topic = topics.get(random);
+		topic += "\n";
 		
 		return topic;
 	}
