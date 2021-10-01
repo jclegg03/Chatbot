@@ -43,7 +43,24 @@ public class Chatbot
 		return answer;
 	}
 
-	
+	public String getRandomTopic()
+	{
+		String topic = "";
+		
+		ArrayList <String> topics = new ArrayList <String>();
+		topics.add("What is your favoirte movie");
+		topics.add("What is the capital of Assyriad");
+		topics.add("What is your favorite color");
+		topics.add("What is the air speed velocity of an unladen swallow?");
+		topics.add("What is your quest?");
+		topics.add("What is your name?");
+		topics.add("Is Monty Python funny?");
+		topics.add("How is school going?");
+		topics.add("Are cat videos funny?");
+		topics.add("What is your Star Wars movie?");
+		
+		return topic;
+	}
 	public String sayKindPhrase()
 	{
 		String kindPhrase = "";
@@ -52,12 +69,8 @@ public class Chatbot
 		kindPhrases.add("You have exceptional manners.");
 		kindPhrases.add("You are very nice.");
 		
+		kindnessCount = (int) (Math.random() * kindPhrases.size());
 		kindPhrase = kindPhrases.get(kindnessCount);
-		kindnessCount++;
-		if (kindnessCount > kindPhrases.size() - 1)
-		{
-			kindnessCount = 0;
-		}
 		
 		kindPhrase += "\n";
 		return kindPhrase;
