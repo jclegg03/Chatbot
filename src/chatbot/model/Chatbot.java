@@ -64,9 +64,9 @@ public class Chatbot
 		String topic = "";
 		
 		ArrayList <String> topics = new ArrayList <String>();
-		topics.add("What is your favoirte movie");
-		topics.add("What is the capital of Assyriad");
-		topics.add("What is your favorite color");
+		topics.add("What is your favoirte movie?");
+		topics.add("What is the capital of Assyria?");
+		topics.add("What is your favorite color?");
 		topics.add("What is the air speed velocity of an unladen swallow?");
 		topics.add("What is your quest?");
 		topics.add("What is your name?");
