@@ -6,16 +6,13 @@ import java.util.ArrayList;
 public class Chatbot
 {	
 	private String name;
-	private int greetingCount;
-	private int farewellCount;
-	private int kindnessCount;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.greetingCount = 0;
 		this.farewellCount = 4;
-		this.kindnessCount = 0;
+		this.random = 0;
 	}
 	
 	public String processText(String text)
@@ -72,8 +69,8 @@ public class Chatbot
 		kindPhrases.add("You have exceptional manners.");
 		kindPhrases.add("You are very nice.");
 		
-		kindnessCount = (int) (Math.random() * kindPhrases.size());
-		kindPhrase = kindPhrases.get(kindnessCount);
+		int random = (int) (Math.random() * kindPhrases.size());
+		kindPhrase = kindPhrases.get(random);
 		
 		kindPhrase += "\n";
 		return kindPhrase;
@@ -111,9 +108,8 @@ public class Chatbot
 		farewells.add("See you later!");
 		farewells.add("I'll see ya in another life, brother!");
 		farewells.add("Until we meet again.");
-		farewell = farewells.get(farewellCount);
 		
-		farewellCount = (int)(Math.random() * farewells.size());
+		int farewellCount = (int)(Math.random() * farewells.size());
 		farewell = farewells.get(farewellCount);
 		
 		return farewell;
@@ -132,7 +128,7 @@ public class Chatbot
 		greetings.add("Felicitations!");
 		greetings.add("Salutations!");
 		
-		greetingCount = (int)(Math.random() * greetings.size());
+		int greetingCount = (int)(Math.random() * greetings.size());
 		greeting = greetings.get(greetingCount);
 		
 		return greeting;
