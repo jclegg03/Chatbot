@@ -10,9 +10,6 @@ public class Chatbot
 	public Chatbot(String name)
 	{
 		this.name = name;
-		this.greetingCount = 0;
-		this.farewellCount = 4;
-		this.random = 0;
 	}
 	
 	public String processText(String text)
