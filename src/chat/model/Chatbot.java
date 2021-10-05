@@ -1,4 +1,4 @@
-package chatbot.model;
+package chat.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

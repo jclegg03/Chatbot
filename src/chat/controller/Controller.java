@@ -1,8 +1,7 @@
-package chatbot.controller;
+package chat.controller;
 
-//import java.util.Scanner;
-import chatbot.model.Chatbot;
-import chatbot.view.Popup;
+import chat.model.Chatbot;
+import chat.view.Popup;
 
 public class Controller
 {

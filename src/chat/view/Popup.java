@@ -1,4 +1,4 @@
-package chatbot.view;
+package chat.view;
 
 import javax.swing.JOptionPane;
 
