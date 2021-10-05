@@ -7,11 +7,15 @@ public class Chatbot
 {	
 	private String name;
 	private int quiet;
+	private int farewellCount;
+	private int greetingCount;
 	
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.quiet = 0;
+		this.farewellCount = 0;
+		this.greetingCount = 0;
 	}
 	
 	public String processText(String text)
@@ -128,15 +132,21 @@ public class Chatbot
 		farewells.add("See you later!");
 		farewells.add("I'll see ya in another life, brother!");
 		farewells.add("Until we meet again.");
+	
 		
-		int farewellCount = (int)(Math.random() * farewells.size());
+//		int farewellCount = (int)(Math.random() * farewells.size());
 		farewell = farewells.get(farewellCount);
+		farewellCount++;
+		if(farewellCount == farewells.size())
+		{
+			farewellCount = 0;
+		}
 		
 		return farewell;
 	}
 	public String getName()
 	{
-		return this.name;
+		return "My name is " + this.name;
 	}
 	public String sayGreeting()
 	{
@@ -147,9 +157,15 @@ public class Chatbot
 		greetings.add("Greetings!");
 		greetings.add("Felicitations!");
 		greetings.add("Salutations!");
+		greetings.add("What an unexpected supprise");
 		
-		int greetingCount = (int)(Math.random() * greetings.size());
+//		int greetingCount = (int)(Math.random() * greetings.size());
 		greeting = greetings.get(greetingCount);
+		greetingCount++;
+		if(greetingCount == greetings.size())
+		{
+			greetingCount = 0;
+		}
 		
 		return greeting;
 	}
@@ -230,7 +246,7 @@ public class Chatbot
 	{
 		String response = sayGreeting() + " I am a chatbot. ";
 		response += this.getName();
-		response += " is my name.";
+		response += ".";
 		return response;
 	}
 }
