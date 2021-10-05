@@ -5,19 +5,22 @@ import java.util.ArrayList;
 
 public class Chatbot
 {	
+	//data members
 	private String name;
 	private int quiet;
-	private int farewellCount;
-	private int greetingCount;
+//	private int farewellCount;
+//	private int greetingCount;
 	
+	//constructor
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.quiet = 0;
-		this.farewellCount = 0;
-		this.greetingCount = 0;
+//		this.farewellCount = 0;
+//		this.greetingCount = 0;
 	}
 	
+	//returns an actual answer. Used by outside code.
 	public String processText(String text)
 	{
 		String answer = sayGreeting() + "\nYou said: ";
@@ -53,6 +56,8 @@ public class Chatbot
 		return answer;
 	}
 
+	
+	//if the user doesn't respond, asks them to talk.
 	public String quiet()
 	{
 		String result = "";
@@ -65,6 +70,9 @@ public class Chatbot
 		
 		return result;
 	}
+	
+
+	//gives a random topic. Used every time for now.
 	public String getRandomTopic()
 	{
 		String topic = "";
@@ -87,6 +95,8 @@ public class Chatbot
 		
 		return topic;
 	}
+
+	//says something nice. Used if the user is polite.
 	public String sayKindPhrase()
 	{
 		String kindPhrase = "";
@@ -101,6 +111,8 @@ public class Chatbot
 		kindPhrase += "\n";
 		return kindPhrase;
 	}
+
+	//checks if certain political aspects are in the string.
 	public boolean isPolitical(String text)
 	{
 		boolean political = false;
@@ -114,6 +126,8 @@ public class Chatbot
 		
 		return political;
 	}
+	
+	//checks if the user is somewhat polite
 	public boolean isPolite(String text)
 	{
 		boolean polite = false;
@@ -125,6 +139,8 @@ public class Chatbot
 		
 		return polite;
 	}
+	
+	//sends a random farewell. Used every time user interacts.
 	public String sayFarewell()
 	{
 		String farewell = "";
@@ -136,20 +152,24 @@ public class Chatbot
 		farewells.add("Until we meet again.");
 	
 		
-//		int farewellCount = (int)(Math.random() * farewells.size());
+		int farewellCount = (int)(Math.random() * farewells.size());
 		farewell = farewells.get(farewellCount);
-		farewellCount++;
-		if(farewellCount == farewells.size())
-		{
-			farewellCount = 0;
-		}
+//		farewellCount++;
+//		if(farewellCount == farewells.size())
+//		{
+//			farewellCount = 0;
+//		}
 		
 		return farewell;
 	}
+	
+	//Sends the phrase "My name is " and the name of the chatbot. Used in the toString method.
 	public String getName()
 	{
 		return "My name is " + this.name;
 	}
+	
+	//sends a random greeting. Used each time the user interacts with the chatbot. Also used in the toString override
 	public String sayGreeting()
 	{
 		String greeting = "";
@@ -161,16 +181,18 @@ public class Chatbot
 		greetings.add("Salutations!");
 		greetings.add("What an unexpected supprise");
 		
-//		int greetingCount = (int)(Math.random() * greetings.size());
+		int greetingCount = (int)(Math.random() * greetings.size());
 		greeting = greetings.get(greetingCount);
-		greetingCount++;
-		if(greetingCount == greetings.size())
-		{
-			greetingCount = 0;
-		}
+//		greetingCount++;
+//		if(greetingCount == greetings.size())
+//		{
+//			greetingCount = 0;
+//		}
 		
 		return greeting;
 	}
+	
+	//gets the current time and formats it American way. Used if the user says time.
 	public String getTime()
 	{
 		String time = "The time is ";
@@ -204,6 +226,8 @@ public class Chatbot
 		
 		return time;
 	}
+	
+	//gets the current date and formats it dayth of month year. used if the user says date.
 	public String getDate()
 	{
 		String date = "The date is ";
@@ -243,6 +267,8 @@ public class Chatbot
 		return date;
 	}
 
+	
+	//Uses greeting then sends the name of the chatbot. Used in the controller once.
 	@Override
 	public String toString()
 	{
