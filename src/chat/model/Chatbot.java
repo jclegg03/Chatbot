@@ -30,7 +30,7 @@ public class Chatbot
 		{
 			answer += "How political of you!\n";
 		}
-		answer += sayFarewell() + "\n";
+		
 		if (text.toLowerCase().indexOf("date") >= 0)
 		{
 			answer += getDate();
@@ -47,6 +47,8 @@ public class Chatbot
 		{
 			answer += quiet();
 		}
+		
+		answer += sayFarewell() + "\n";
 		
 		return answer;
 	}
