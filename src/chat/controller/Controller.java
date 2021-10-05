@@ -1,11 +1,12 @@
 package chat.controller;
 
+import java.util.Scanner;
 import chat.model.Chatbot;
 import chat.view.Popup;
 
 public class Controller
 {
-//	private Scanner input;
+	private Scanner input;
 	private Chatbot myChatbot;
 	private Popup view;
 	
@@ -24,7 +25,7 @@ public class Controller
 //		System.out.println("What do you want to talk about?");
 //		String response = input.nextLine();
 		
-		String response = view.displayQuestion("What do you want to talk about?");
+		String response = view.askQuestion("What do you want to talk about?");
 		
 		while (! response.contentEquals("quit"))
 		{
@@ -32,7 +33,7 @@ public class Controller
 			view.displayMessage(interactWithChatbot(response));
 //			System.out.println("Type quit to quit.");
 //			response = input.nextLine();
-			response = view.displayQuestion("Type quit to quit.");
+			response = view.askQuestion("Type quit to quit.");
 		}
 	}
 

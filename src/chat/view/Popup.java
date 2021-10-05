@@ -9,7 +9,7 @@ public class Popup
 		JOptionPane.showMessageDialog(null, message);
 	}
 	
-	public String displayQuestion(String question)
+	public String askQuestion(String question)
 	{
 		String response = "";
 		
