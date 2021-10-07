@@ -44,7 +44,14 @@ public class Chatbot
 			answer += getTime();
 		}
 		
-		answer += getRandomTopic();
+		if (containsQuestion(text))
+		{
+			answer += answerQuestion(text);
+		}
+		else if(containsQuestion(text))
+		{
+			answer += getRandomTopic();
+		}
 		
 		if (text.contentEquals(""))
 		{
@@ -284,6 +291,36 @@ public class Chatbot
 	public String answerQuestion(String text)
 	{
 		String answer = "";
+		
+		int mePosition = text.toUpperCase().indexOf("ME");
+		int youPosition = text.toUpperCase().indexOf("YOU");
+		int iPosition = text.indexOf(" I ");
+		boolean iStart = text.indexOf("I ") == 0;
+		boolean iEnd = text.indexOf(" I") == text.length() - 2 || text.indexOf( "I") == text.length() - 1;
+		
+		answer += "You asked: " + text + "\n";
+		
+		if (mePosition == -1 && youPosition == -1 && iPosition == -1 && ! iStart && ! iEnd)
+		{
+			answer += "\nJay is too lazy to answer your question.\nOh no I've used the name of the maker!\nI meant I, Yaj, am too lazy to answer your question.";
+		}
+		else if  (mePosition >=0 && youPosition == -1)
+		{
+			String segment = text.substring(0, mePosition);
+			segment += "you";
+			segment += text.substring(mePosition + 2);
+			
+			answer += segment;
+		}
+		else if (youPosition >=0 && mePosition == -1)
+		{
+			String segment = text.substring(0, youPosition);
+			segment += "I";
+			segment += text.substring(youPosition + 3);
+			answer += segment;
+		}
+		
+		answer += "\nI think " + getRandomTopic();
 		
 		return answer;
 	}
