@@ -267,6 +267,26 @@ public class Chatbot
 		return date;
 	}
 
+	//determines if a question is asked. used every time user responds
+	public boolean containsQuestion(String text)
+	{
+		boolean inqusitive = false;
+		
+		if(text.contains("?") || text.toUpperCase().contains("CAN YOU") || text.toUpperCase().contains("WILL YOU"))
+		{
+			inqusitive = true;
+		}
+		
+		return inqusitive;
+	}
+	
+	//answers a user's question. used if the user asked a question
+	public String answerQuestion(String text)
+	{
+		String answer = "";
+		
+		return answer;
+	}
 	
 	//Uses greeting then sends the name of the chatbot. Used in the controller once.
 	@Override
