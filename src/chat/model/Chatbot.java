@@ -17,7 +17,10 @@ public class Chatbot
 //	private int farewellCount;
 //	private int greetingCount;
 	
-	//constructor
+	/**
+	 * Constructs a chatbot with the name given by the constructor call. Also initializes the quiet variable used to determine if the user hasn't responded multiple times.
+	 * @param name
+	 */
 	public Chatbot(String name)
 	{
 		this.name = name;
@@ -31,7 +34,6 @@ public class Chatbot
 	 * @param text The text given by the user.
 	 * @return The response built by the chatbot.
 	 */
-	//returns an actual answer. Used by outside code.
 	public String processText(String text)
 	{
 		String answer = sayGreeting();

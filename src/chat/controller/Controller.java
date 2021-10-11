@@ -3,13 +3,20 @@ package chat.controller;
 //import java.util.Scanner;
 import chat.model.Chatbot;
 import chat.view.Popup;
-
+/**
+ * Handles all aspects of the project. Takes inputs and outputs from the user, chatbot, and view and sends them to the view so the user can see the response and questions.
+ * @author Jay Clegg
+ *
+ */
 public class Controller
 {
 //	private Scanner input;
 	private Chatbot myChatbot;
 	private Popup view;
 	
+	/**
+	 * Builds the controller used by the runner. Builds a chatbot to be used and builds a popup to be used for output and input.
+	 */
 	public Controller()
 	{
 //		this.input = new Scanner(System.in);
@@ -17,6 +24,9 @@ public class Controller
 		this.view = new Popup();
 	}
 	
+	/**
+	 * Method called by the runner to get the chatbot to interact with the user.
+	 */
 	public void start()
 	{
 //		System.out.println(myChatbot);
@@ -37,6 +47,11 @@ public class Controller
 		}
 	}
 
+	/**
+	 * Used to allow the user's message to be sent to the chatbot.
+	 * @param received The answer given by the user.
+	 * @return The message built by the chatbot.
+	 */
 	public String interactWithChatbot(String received)
 	{
 		String message = "";
