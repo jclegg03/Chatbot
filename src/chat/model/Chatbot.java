@@ -23,8 +23,8 @@ public class Chatbot
 	//returns an actual answer. Used by outside code.
 	public String processText(String text)
 	{
-		String answer = sayGreeting() + "\nYou said: ";
-		answer += text + "\n";
+		String answer = sayGreeting();
+		answer += "\nYou said: " + text + "\n";
 		if(isPolite(text))
 		{
 			answer += sayKindPhrase();
@@ -71,9 +71,8 @@ public class Chatbot
 		quiet += 1;
 		if (quiet >= 5)
 		{
-			result += "Please talk to me!";
+			result += "Please talk to me!\n";
 		}
-		result += "\n";
 		
 		return result;
 	}
@@ -186,7 +185,7 @@ public class Chatbot
 		greetings.add("Greetings!");
 		greetings.add("Felicitations!");
 		greetings.add("Salutations!");
-		greetings.add("What an unexpected supprise");
+		greetings.add("What an unexpected supprise!");
 		
 		int greetingCount = (int)(Math.random() * greetings.size());
 		greeting = greetings.get(greetingCount);
@@ -296,13 +295,13 @@ public class Chatbot
 		int youPosition = text.toUpperCase().indexOf("YOU");
 		int iPosition = text.indexOf(" I ");
 		boolean iStart = text.indexOf("I ") == 0;
-		boolean iEnd = text.indexOf(" I") == text.length() - 2 || text.indexOf( "I") == text.length() - 1;
+		boolean iEnd = (text.indexOf(" I") == text.length() - 2 || text.indexOf( "I") == text.length() - 1) && text.length() > 3;
 		
-		answer += "You asked: " + text + "\n";
+		answer += "You asked ";
 		
 		if (mePosition == -1 && youPosition == -1 && iPosition == -1 && ! iStart && ! iEnd)
 		{
-			answer += "\nJay is too lazy to answer your question.\nOh no I've used the name of the maker!\nI meant I, Yaj, am too lazy to answer your question.";
+			answer += "a question Jay is too lazy to answer.\nOh no I've used the name of the maker!\nI meant I, Yaj, am too lazy to answer your question.\n";
 		}
 		else if  (mePosition >=0 && youPosition == -1)
 		{
@@ -311,6 +310,7 @@ public class Chatbot
 			segment += text.substring(mePosition + 2);
 			
 			answer += segment;
+			answer += "\n";
 		}
 		else if (youPosition >=0 && mePosition == -1)
 		{
@@ -318,9 +318,12 @@ public class Chatbot
 			segment += "I";
 			segment += text.substring(youPosition + 3);
 			answer += segment;
+			answer += "\n";
 		}
 		
-		answer += "\nI think " + getRandomTopic();
+		
+		
+		answer += getRandomTopic();
 		
 		return answer;
 	}
