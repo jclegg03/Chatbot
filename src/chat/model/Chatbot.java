@@ -81,7 +81,7 @@ public class Chatbot
 	 * Checks if the user hasn't responded multiple times. If they haven't, it asks them to talk. Called by processText().
 	 * @return Nothing if the user sends a message, or a message requesting the user to talk to the chatbot if they haven't.
 	 */
-	public String quiet()
+	private String quiet()
 	{
 		String result = "";
 		quiet += 1;
@@ -98,7 +98,7 @@ public class Chatbot
 	 * Generates a random topic from a list to talk about. Called by processText() and answerQuestion();
 	 * @return The random topic that was generated.
 	 */
-	public String getRandomTopic()
+	private String getRandomTopic()
 	{
 		String topic = "";
 		
@@ -125,7 +125,7 @@ public class Chatbot
 	 * Generates a compliment from a list. Called by processText();
 	 * @return The generated compliment.
 	 */
-	public String sayKindPhrase()
+	private String sayKindPhrase()
 	{
 		String kindPhrase = "";
 		ArrayList <String> kindPhrases = new ArrayList <String>();
@@ -145,7 +145,7 @@ public class Chatbot
 	 * @param text The user input.
 	 * @return true if the user was political or false if not.
 	 */
-	public boolean isPolitical(String text)
+	private boolean isPolitical(String text)
 	{
 		boolean political = false;
 		String analyze = text.toLowerCase();
