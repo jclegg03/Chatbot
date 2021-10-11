@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"chat.model","l":"Chatbot"},{"p":"chat.controller","l":"Controller"},{"p":"chat.view","l":"Popup"},{"p":"chat.controller","l":"Runner"}]
