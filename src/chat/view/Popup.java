@@ -18,7 +18,7 @@ public class Popup
 		{
 			response = "";
 		}
-		
+
 		return response;
 	}
 }
