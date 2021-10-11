@@ -3,6 +3,12 @@ package chat.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * This is the framework for a chatbot. It takes user response and responds with what the user says. It can respond to some questions.
+ * @author Jay Clegg
+ *
+ */
+
 public class Chatbot
 {	
 	//data members
@@ -20,6 +26,11 @@ public class Chatbot
 //		this.greetingCount = 0;
 	}
 	
+	/**
+	 * How the chatbot builds its response to send to the controller. Calls various internal methods.
+	 * @param text The text given by the user.
+	 * @return The response built by the chatbot.
+	 */
 	//returns an actual answer. Used by outside code.
 	public String processText(String text)
 	{
@@ -296,8 +307,9 @@ public class Chatbot
 		int iPosition = text.indexOf(" I ");
 		boolean iStart = text.indexOf("I ") == 0;
 		boolean iEnd = (text.indexOf(" I") == text.length() - 2 || text.indexOf( "I") == text.length() - 1) && text.length() > 3;
+		int symbolIndex = text.indexOf("?");
 		
-		answer += "You asked ";
+		answer += "You asked me ";
 		
 		if (mePosition == -1 && youPosition == -1 && iPosition == -1 && ! iStart && ! iEnd)
 		{
@@ -321,7 +333,7 @@ public class Chatbot
 			answer += "\n";
 		}
 		
-		
+		answer = answer.substring(0, answer.length() - 2) + ".\n";
 		
 		answer += getRandomTopic();
 		
