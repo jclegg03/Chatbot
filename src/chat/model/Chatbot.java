@@ -164,7 +164,7 @@ public class Chatbot
 	 * @param text The user input.
 	 * @return true if the user was polite or false if not.
 	 */
-	public boolean isPolite(String text)
+	private boolean isPolite(String text)
 	{
 		boolean polite = false;
 		String check = text.toLowerCase();
@@ -180,7 +180,7 @@ public class Chatbot
 	 * Generates a random goodbye message from a list. Called by processText();
 	 * @return The random goodbye message.
 	 */
-	public String sayFarewell()
+	private String sayFarewell()
 	{
 		String farewell = "";
 		ArrayList <String> farewells = new ArrayList <String>();
@@ -206,7 +206,7 @@ public class Chatbot
 	 * Gives the name of the chatbot. Called by toString();
 	 * @return The chatbot's name.
 	 */
-	public String getName()
+	private String getName()
 	{
 		return this.name;
 	}
@@ -215,7 +215,7 @@ public class Chatbot
 	 * Generates a random greeting from a list. Called by processText() and toString().
 	 * @return The random greeting.
 	 */
-	public String sayGreeting()
+	private String sayGreeting()
 	{
 		String greeting = "";
 		ArrayList <String> greetings = new ArrayList <String>();
@@ -241,7 +241,7 @@ public class Chatbot
 	 * Gives the current time in the American h:mm AM/PM format. Called by processText().
 	 * @return The formated time.
 	 */
-	public String getTime()
+	private String getTime()
 	{
 		String time = "The time is ";
 		String ampm = " AM";
@@ -279,7 +279,7 @@ public class Chatbot
 	 * Gives the current date in the format day month year like 1st of August 2052. Called by processText().
 	 * @return The formated date.
 	 */
-	public String getDate()
+	private String getDate()
 	{
 		String date = "The date is ";
 		
@@ -323,7 +323,7 @@ public class Chatbot
 	 * @param text The user response.
 	 * @return true if the user asked a question or false if the user didn't.
 	 */
-	public boolean containsQuestion(String text)
+	private boolean containsQuestion(String text)
 	{
 		boolean inqusitive = false;
 		
