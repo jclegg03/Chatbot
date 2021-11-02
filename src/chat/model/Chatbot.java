@@ -13,8 +13,6 @@ public class Chatbot
 	//data members
 	private String name;
 	private int quiet;
-//	private int farewellCount;
-//	private int greetingCount;
 	
 	/**
 	 * Constructs a chatbot with the name given by the constructor call. Also initializes the quiet variable used to determine if the user hasn't responded multiple times.
@@ -24,8 +22,6 @@ public class Chatbot
 	{
 		this.name = name;
 		this.quiet = 0;
-//		this.farewellCount = 0;
-//		this.greetingCount = 0;
 	}
 	
 	/**
@@ -193,12 +189,7 @@ public class Chatbot
 		
 		int farewellCount = (int)(Math.random() * farewells.length);
 		farewell = farewells[farewellCount];
-//		farewellCount++;
-//		if(farewellCount == farewells.size())
-//		{
-//			farewellCount = 0;
-//		}
-		
+
 		return farewell;
 	}
 	
@@ -229,12 +220,7 @@ public class Chatbot
 		};
 		int greetingCount = (int)(Math.random() * greetings.length);
 		greeting = greetings[greetingCount];
-//		greetingCount++;
-//		if(greetingCount == greetings.size())
-//		{
-//			greetingCount = 0;
-//		}
-		
+
 		return greeting;
 	}
 	
