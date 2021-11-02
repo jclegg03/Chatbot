@@ -1,7 +1,6 @@
 package chat.model;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 /**
  * This a crude chatbot. It takes user response and responds with what the user says. It can respond to some questions.
@@ -36,7 +35,7 @@ public class Chatbot
 	 */
 	public String processText(String text)
 	{
-		String answer = sayGreeting();
+		String answer = "";
 		answer += "\nYou said: " + text + "\n";
 		if(isPolite(text))
 		{
@@ -71,8 +70,6 @@ public class Chatbot
 			answer += quiet();
 		}
 		
-		answer += sayFarewell() + "\n";
-		
 		return answer;
 	}
 
@@ -102,20 +99,22 @@ public class Chatbot
 	{
 		String topic = "";
 		
-		ArrayList <String> topics = new ArrayList <String>();
-		topics.add("What is your favoirte movie?");
-		topics.add("What is the capital of Assyria?");
-		topics.add("What is your favorite color?");
-		topics.add("What is the air speed velocity of an unladen swallow?");
-		topics.add("What is your quest?");
-		topics.add("What is your name?");
-		topics.add("Is Monty Python funny?");
-		topics.add("How is school going?");
-		topics.add("Are cat videos funny?");
-		topics.add("What is your Star Wars movie?");
+		String[] topics =
+		{
+			"What is your favoirte movie?",
+			"What is the capital of Assyria?",
+			"What is your favorite color?",
+			"What is the air speed velocity of an unladen swallow?",
+			"What is your quest?",
+			"What is your name?",
+			"Is Monty Python funny?",
+			"How is school going?",
+			"Are cat videos funny?",
+			"What is your Star Wars movie?"
+		};
 		
-		int random = (int)(Math.random() * topics.size());
-		topic = topics.get(random);
+		int random = (int)(Math.random() * topics.length);
+		topic = topics[random];
 		topic += "\n";
 		
 		return topic;
@@ -128,13 +127,13 @@ public class Chatbot
 	private String sayKindPhrase()
 	{
 		String kindPhrase = "";
-		ArrayList <String> kindPhrases = new ArrayList <String>();
-		kindPhrases.add("Thank you for your kind words.");
-		kindPhrases.add("You have exceptional manners.");
-		kindPhrases.add("You are very nice.");
+		String[] kindPhrases = new String[3];
+		kindPhrases[0] = "Thank you for your kind words.";
+		kindPhrases[1] = "You have exceptional manners.";
+		kindPhrases[2] = "You are very nice.";
 		
-		int random = (int) (Math.random() * kindPhrases.size());
-		kindPhrase = kindPhrases.get(random);
+		int random = (int) (Math.random() * kindPhrases.length);
+		kindPhrase = kindPhrases[random];
 		
 		kindPhrase += "\n";
 		return kindPhrase;
@@ -180,19 +179,20 @@ public class Chatbot
 	 * Generates a random goodbye message from a list. Called by processText();
 	 * @return The random goodbye message.
 	 */
-	private String sayFarewell()
+	public String sayFarewell()
 	{
 		String farewell = "";
-		ArrayList <String> farewells = new ArrayList <String>();
-		farewells.add("Goodbye!");
-		farewells.add("Have a good day!");
-		farewells.add("See you later!");
-		farewells.add("I'll see ya in another life, brother!");
-		farewells.add("Until we meet again.");
-	
+		String[] farewells = 
+			{
+				"Goodbye!",
+				"Have a good day!",
+				"See you later!",
+				"I'll see ya in another life, brother!",
+				"Until we meet again."
+			};
 		
-		int farewellCount = (int)(Math.random() * farewells.size());
-		farewell = farewells.get(farewellCount);
+		int farewellCount = (int)(Math.random() * farewells.length);
+		farewell = farewells[farewellCount];
 //		farewellCount++;
 //		if(farewellCount == farewells.size())
 //		{
@@ -206,7 +206,7 @@ public class Chatbot
 	 * Gives the name of the chatbot. Called by toString();
 	 * @return The chatbot's name.
 	 */
-	private String getName()
+	public String getName()
 	{
 		return this.name;
 	}
@@ -215,19 +215,20 @@ public class Chatbot
 	 * Generates a random greeting from a list. Called by processText() and toString().
 	 * @return The random greeting.
 	 */
-	private String sayGreeting()
+	public String sayGreeting()
 	{
 		String greeting = "";
-		ArrayList <String> greetings = new ArrayList <String>();
-		greetings.add("Hello there!");
-		greetings.add("Good day!");
-		greetings.add("Greetings!");
-		greetings.add("Felicitations!");
-		greetings.add("Salutations!");
-		greetings.add("What an unexpected supprise!");
-		
-		int greetingCount = (int)(Math.random() * greetings.size());
-		greeting = greetings.get(greetingCount);
+		String[] greetings = 
+		{
+			"Hello there!",
+			"Good day!",
+			"Greetings!",
+			"Felicitations!",
+			"Salutations!",
+			"What an unexpected supprise!"
+		};
+		int greetingCount = (int)(Math.random() * greetings.length);
+		greeting = greetings[greetingCount];
 //		greetingCount++;
 //		if(greetingCount == greetings.size())
 //		{
