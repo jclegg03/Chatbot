@@ -1,27 +1,31 @@
 package chat.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * This a crude chatbot. It takes user response and responds with what the user says. It can respond to some questions.
  * @author Jay Clegg
  *
  */
-
 public class Chatbot
 {	
 	//data members
 	private String name;
 	private int quiet;
+	private ArrayList <String> userInputs;
+	private ArrayList <String> chatbotResponses;
 	
 	/**
 	 * Constructs a chatbot with the name given by the constructor call. Also initializes the quiet variable used to determine if the user hasn't responded multiple times.
-	 * @param name
+	 * @param name The name of the chatbot
 	 */
 	public Chatbot(String name)
 	{
 		this.name = name;
 		this.quiet = 0;
+		this.userInputs = new ArrayList <String>();
+		this.chatbotResponses = new ArrayList <String>();
 	}
 	
 	/**
@@ -31,6 +35,8 @@ public class Chatbot
 	 */
 	public String processText(String text)
 	{
+		userInputs.add(text);
+		
 		String answer = "";
 		answer += "\nYou said: " + text + "\n";
 		if(isPolite(text))
@@ -65,6 +71,8 @@ public class Chatbot
 		{
 			answer += quiet();
 		}
+		
+		chatbotResponses.add(answer);
 		
 		return answer;
 	}
