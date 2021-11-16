@@ -388,4 +388,11 @@ public class Chatbot
 		response += " is my name.";
 		return response;
 	}
+
+	private String getMostCommonWord(ArrayList<String> souce)
+	{
+		String mostCommon = "The";
+		
+		return mostCommon;
+	}
 }
