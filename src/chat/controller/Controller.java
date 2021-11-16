@@ -39,6 +39,8 @@ public class Controller
 		}
 		
 		view.displayMessage(myChatbot.sayFarewell());
+		
+		view.displayMessage(myChatbot.getMostCommonWord(myChatbot.getUserInputs()));
 	}
 
 	/**

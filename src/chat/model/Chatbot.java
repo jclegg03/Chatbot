@@ -389,7 +389,7 @@ public class Chatbot
 		return response;
 	}
 
-	private String getMostCommonWord(ArrayList<String> source)
+	public String getMostCommonWord(ArrayList<String> source)
 	{
 		String mostCommon = "";
 		ArrayList <String> words = new ArrayList <String>();
@@ -427,5 +427,15 @@ public class Chatbot
 		mostCommon = "The most common word was: " + mostCommon + " with " + most + " apppearences.";
 		
 		return mostCommon;
+	}
+	
+	public ArrayList <String> getUserInputs()
+	{
+		return this.userInputs;
+	}
+	
+	public ArrayList <String> getChatbotResponses()
+	{
+		return this.chatbotResponses;
 	}
 }
