@@ -389,9 +389,42 @@ public class Chatbot
 		return response;
 	}
 
-	private String getMostCommonWord(ArrayList<String> souce)
+	private String getMostCommonWord(ArrayList<String> source)
 	{
-		String mostCommon = "The";
+		String mostCommon = "";
+		ArrayList <String> words = new ArrayList <String>();
+		
+		for(String sentence : source)
+		{
+			String[] tempWords = sentence.split(" ");
+			for(String word : tempWords)
+			{
+				words.add(word);
+			}
+		}
+		
+		int most = 0;
+		
+		for(int index = 0; index < words.size(); index++)
+		{
+			String current = words.get(index);
+			int count = 1;
+			
+			for(int inner = index + 1; inner < words.size(); inner++)
+			{
+				if(words.get(inner).equalsIgnoreCase(current))
+				{
+					count++;
+				}
+			}
+			if(count > most)
+			{
+				most = count;
+				mostCommon = current;
+			}
+		}
+		
+		mostCommon = "The most common word was: " + mostCommon + " with " + most + " apppearences.";
 		
 		return mostCommon;
 	}
