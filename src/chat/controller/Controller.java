@@ -4,6 +4,13 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.Popup;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * Handles all aspects of the project. Takes inputs and outputs from the user, chatbot, and view and sends them to the view so the user can see the response and questions.
  * @author Jay Clegg
@@ -55,4 +62,16 @@ public class Controller
 		
 		return message;
 	}
+
+	/**
+	 * Displays an error message.
+	 * @param error The error thrown.
+	 */
+	public void handleError(Exception error)
+	{
+		String details = "Your error is: " + error.getMessage();
+		view.displayMessage(details);
+	}
+
+	
 }
