@@ -412,7 +412,7 @@ public class Chatbot
 			
 			for(int inner = index + 1; inner < words.size(); inner++)
 			{
-				if(words.get(inner).equalsIgnoreCase(current))
+				if(words.get(inner).equalsIgnoreCase(current) && ! current.contentEquals(""))
 				{
 					count++;
 				}
@@ -437,5 +437,15 @@ public class Chatbot
 	public ArrayList <String> getChatbotResponses()
 	{
 		return this.chatbotResponses;
+	}
+	
+	public void setUserInputs(ArrayList <String> inputs)
+	{
+		this.userInputs = inputs;
+	}
+	
+	public void setChatbotResponses(ArrayList <String> responses)
+	{
+		this.chatbotResponses = responses;
 	}
 }
