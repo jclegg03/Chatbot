@@ -98,4 +98,29 @@ public class Controller
 			handleError(genericError);
 		}
 	}
+	
+	private ArrayList <String> loadTextToList(String filename)
+	{
+		ArrayList <String> fileContents = new ArrayList <String>();
+		
+		File source = new File(filename);
+		
+		try(Scanner fileScanner = new Scanner(source))
+		{
+			while(fileScanner.hasNextLine())
+			{
+				fileContents.add(fileScanner.nextLine());
+			}
+		}
+		catch(IOException fileError)
+		{
+			handleError(fileError);
+		}
+		catch(Exception error)
+		{
+			handleError(error);
+		}
+		
+		return fileContents;
+	}
 }
