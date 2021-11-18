@@ -73,5 +73,29 @@ public class Controller
 		view.displayMessage(details);
 	}
 
-	
+	/**
+	 * Saves an arrayList of text to a file named filename.
+	 * @param responses The arrayList of text.
+	 * @param filename The name of the file where the data is saved.
+	 */
+	private void saveListAsText(ArrayList <String> responses, String filename)
+	{
+		File saveFile = new File(filename);
+		
+		try(PrintWriter saveText = new PrintWriter(saveFile))
+		{
+			for(String content : responses)
+			{
+				saveText.println(content);
+			}
+		}
+		catch(IOException errorFromIO)
+		{
+			handleError(errorFromIO);
+		}
+		catch(Exception genericError)
+		{
+			handleError(genericError);
+		}
+	}
 }
