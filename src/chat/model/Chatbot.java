@@ -119,7 +119,14 @@ public class Chatbot
 		}
 		else if(choice == 4)
 		{
-			answer += answerQuestion(text);
+			if(containsQuestion(text))
+			{
+				answer += answerQuestion(text);
+			}
+			else
+			{
+				answer += "That is not a question fool, ya fool!";
+			}
 		}
 		else if(choice == 5)
 		{
