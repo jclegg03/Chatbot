@@ -77,9 +77,35 @@ public class Chatbot
 		return answer;
 	}
 	
+	/**
+	 * How the chatbot builds its response to send to the controller. Calls various internal methods.
+	 * @param text The text supplied by the user.
+	 * @param choice The choice made by the user.
+	 * @return The response built by the chatbot.
+	 */
 	public String processText(String text, int choice)
 	{
 		String answer = "";
+		
+		if(choice == 0)
+		{
+			answer += getDate();
+		}
+		else if(choice == 1)
+		{
+			answer += getTime();
+		}
+		else if(choice == 2)
+		{
+			if(isPolite(text))
+			{
+				answer += sayKindPhrase();
+			}
+			else
+			{
+				answer += "\nHow wude!";
+			}
+		}
 		
 		return answer;
 	}
