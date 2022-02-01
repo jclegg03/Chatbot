@@ -76,7 +76,13 @@ public class Chatbot
 		
 		return answer;
 	}
-
+	
+	public String processText(String text, int choice)
+	{
+		String answer = "";
+		
+		return answer;
+	}
 	
 	/**
 	 * Checks if the user hasn't responded multiple times. If they haven't, it asks them to talk. Called by processText().
