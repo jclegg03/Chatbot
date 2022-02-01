@@ -76,7 +76,74 @@ public class Chatbot
 		
 		return answer;
 	}
-
+	
+	/**
+	 * How the chatbot builds its response to send to the controller. Calls various internal methods.
+	 * @param text The text supplied by the user.
+	 * @param choice The choice made by the user.
+	 * @return The response built by the chatbot.
+	 */
+	public String processText(String text, int choice)
+	{
+		String answer = "";
+		
+		userInputs.add(text);
+		
+		if(choice == 0)
+		{
+			answer += getDate();
+		}
+		else if(choice == 1)
+		{
+			answer += getTime();
+		}
+		else if(choice == 2)
+		{
+			if(isPolite(text))
+			{
+				answer += sayKindPhrase();
+			}
+			else
+			{
+				answer += "How wude!\n";	
+			}
+		}
+		else if(choice == 3)
+		{
+			if(isPolitical(text))
+			{
+				answer += "You are very politically enlightened.\n";
+			}
+			else
+			{
+				answer += "No politics detected.\n";
+			}
+		}
+		else if(choice == 4)
+		{
+			if(containsQuestion(text))
+			{
+				answer += answerQuestion(text);
+			}
+			else
+			{
+				answer += "That is not a question fool, ya fool!\n";
+			}
+		}
+		else if(choice == 5)
+		{
+			answer += getRandomTopic();
+		}
+		
+		if(text.contentEquals(""))
+		{
+			answer += quiet();
+		}
+		
+		chatbotResponses.add(answer);
+		
+		return answer;
+	}
 	
 	/**
 	 * Checks if the user hasn't responded multiple times. If they haven't, it asks them to talk. Called by processText().
@@ -125,7 +192,7 @@ public class Chatbot
 	}
 
 	/**
-	 * Generates a compliment from a list. Called by processText();
+	 * Generates a compliment from a list.
 	 * @return The generated compliment.
 	 */
 	private String sayKindPhrase()
@@ -144,7 +211,7 @@ public class Chatbot
 	}
 
 	/**
-	 * Checks if the user used a political phrase. Called by processText().
+	 * Checks if the user used a political phrase.
 	 * @param text The user input.
 	 * @return true if the user was political or false if not.
 	 */
@@ -163,7 +230,7 @@ public class Chatbot
 	}
 	
 	/**
-	 * Checks if the user used a polite phrase. Called by processText();
+	 * Checks if the user used a polite phrase.
 	 * @param text The user input.
 	 * @return true if the user was polite or false if not.
 	 */
@@ -180,7 +247,7 @@ public class Chatbot
 	}
 	
 	/**
-	 * Generates a random goodbye message from a list. Called by processText();
+	 * Generates a random goodbye message from a list.
 	 * @return The random goodbye message.
 	 */
 	public String sayFarewell()
