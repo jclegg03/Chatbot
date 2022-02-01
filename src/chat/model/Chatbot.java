@@ -103,8 +103,32 @@ public class Chatbot
 			}
 			else
 			{
-				answer += "\nHow wude!";
+				answer += "\nHow wude!";	
 			}
+		}
+		else if(choice == 3)
+		{
+			if(isPolitical(text))
+			{
+				answer += "You are very politically enlightened.";
+			}
+			else
+			{
+				answer += "No politics detected.";
+			}
+		}
+		else if(choice == 4)
+		{
+			answer += answerQuestion(text);
+		}
+		else if(choice == 5)
+		{
+			answer += getRandomTopic();
+		}
+		
+		if(text.contentEquals(""))
+		{
+			answer += quiet();
 		}
 		
 		return answer;
@@ -157,7 +181,7 @@ public class Chatbot
 	}
 
 	/**
-	 * Generates a compliment from a list. Called by processText();
+	 * Generates a compliment from a list.
 	 * @return The generated compliment.
 	 */
 	private String sayKindPhrase()
@@ -176,7 +200,7 @@ public class Chatbot
 	}
 
 	/**
-	 * Checks if the user used a political phrase. Called by processText().
+	 * Checks if the user used a political phrase.
 	 * @param text The user input.
 	 * @return true if the user was political or false if not.
 	 */
@@ -195,7 +219,7 @@ public class Chatbot
 	}
 	
 	/**
-	 * Checks if the user used a polite phrase. Called by processText();
+	 * Checks if the user used a polite phrase.
 	 * @param text The user input.
 	 * @return true if the user was polite or false if not.
 	 */
@@ -212,7 +236,7 @@ public class Chatbot
 	}
 	
 	/**
-	 * Generates a random goodbye message from a list. Called by processText();
+	 * Generates a random goodbye message from a list.
 	 * @return The random goodbye message.
 	 */
 	public String sayFarewell()
