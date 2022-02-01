@@ -24,6 +24,7 @@ public class Frame extends JFrame
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(panel);
+		this.setTitle("Chatbot V2.1.0");
 		
 		this.setVisible(true);
 	}
