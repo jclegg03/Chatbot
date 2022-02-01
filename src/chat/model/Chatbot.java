@@ -87,6 +87,8 @@ public class Chatbot
 	{
 		String answer = "";
 		
+		userInputs.add(text);
+		
 		if(choice == 0)
 		{
 			answer += getDate();
@@ -103,18 +105,18 @@ public class Chatbot
 			}
 			else
 			{
-				answer += "\nHow wude!";	
+				answer += "How wude!\n";	
 			}
 		}
 		else if(choice == 3)
 		{
 			if(isPolitical(text))
 			{
-				answer += "You are very politically enlightened.";
+				answer += "You are very politically enlightened.\n";
 			}
 			else
 			{
-				answer += "No politics detected.";
+				answer += "No politics detected.\n";
 			}
 		}
 		else if(choice == 4)
@@ -125,7 +127,7 @@ public class Chatbot
 			}
 			else
 			{
-				answer += "That is not a question fool, ya fool!";
+				answer += "That is not a question fool, ya fool!\n";
 			}
 		}
 		else if(choice == 5)
@@ -137,6 +139,8 @@ public class Chatbot
 		{
 			answer += quiet();
 		}
+		
+		chatbotResponses.add(answer);
 		
 		return answer;
 	}
