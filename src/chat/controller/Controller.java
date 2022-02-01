@@ -1,15 +1,15 @@
 package chat.controller;
 
-//import java.util.Scanner;
-import chat.model.Chatbot;
-import chat.view.Popup;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import java.util.ArrayList;
 import java.util.Scanner;
+
+//import java.util.Scanner;
+import chat.model.Chatbot;
+import chat.view.Frame;
+import chat.view.Popup;
 
 /**
  * Handles all aspects of the project. Takes inputs and outputs from the user, chatbot, and view and sends them to the view so the user can see the response and questions.
@@ -20,6 +20,7 @@ public class Controller
 {
 	private Chatbot myChatbot;
 	private Popup view;
+	private Frame frame;
 	
 	/**
 	 * Builds the controller used by the runner. Builds a chatbot to be used and builds a popup to be used for output and input.
@@ -28,6 +29,7 @@ public class Controller
 	{
 		this.myChatbot = new Chatbot("Yaj");
 		this.view = new Popup();
+		this.frame = new Frame(this);
 	}
 	
 	/**
