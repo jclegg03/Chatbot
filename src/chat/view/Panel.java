@@ -1,5 +1,8 @@
 package chat.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -35,14 +38,58 @@ public class Panel extends JPanel
 
 	private void setupLayout()
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
 	private void setupListeners()
 	{
-		// TODO Auto-generated method stub
+		getDate.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.interactWithChatbot("", 0);
+			}
+		});
 		
+		getTime.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.interactWithChatbot("", 1);
+			}
+		});
+		
+		isPolite.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.interactWithChatbot("", 2);
+			}
+		});
+		
+		askQuestion.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.interactWithChatbot("", 3);
+			}
+		});
+		
+		getRandomTopic.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.interactWithChatbot("", 4);
+			}
+		});
+		
+		quit.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.quit();
+			}
+		});
 	}
 
 	private void setupPanel()

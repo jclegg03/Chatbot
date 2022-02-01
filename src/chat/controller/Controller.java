@@ -147,4 +147,9 @@ public class Controller
 		
 		return fileContents;
 	}
+	
+	public void quit()
+	{
+		
+	}
 }
