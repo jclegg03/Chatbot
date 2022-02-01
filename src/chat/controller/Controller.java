@@ -69,6 +69,21 @@ public class Controller
 		
 		return message;
 	}
+	
+	/**
+	 * Used to send the user's message from the view to the model.
+	 * @param text The text given by the user.
+	 * @param button The button clicked by the user.
+	 * @return The chatbot's response.
+	 */
+	public String interactWithChatbot(String text, int button)
+	{
+		String response = "";
+		
+		response += myChatbot.processText(text, button);
+		
+		return response;
+	}
 
 	/**
 	 * Displays an error message.
