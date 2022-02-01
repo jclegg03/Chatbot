@@ -8,24 +8,24 @@ import chat.controller.Controller;
 public class Panel extends JPanel
 {
 	private Controller app;
-	private JButton button0;
-	private JButton button1;
-	private JButton button2;
-	private JButton button3;
-	private JButton button4;
-	private JButton button5;
+	private JButton getDate;
+	private JButton getTime;
+	private JButton isPolite;
+	private JButton isPolitical;
+	private JButton askQuestion;
+	private JButton getRandomTopic;
 	private JButton quit;
 	
 	public Panel(Controller app)
 	{
 		super();
 		this.app = app;
-		this.button0 = new JButton("");
-		this.button1 = new JButton("");
-		this.button2 = new JButton("");
-		this.button3 = new JButton("");
-		this.button4 = new JButton("");
-		this.button5 = new JButton("");
+		this.getDate = new JButton("Get the date");
+		this.getTime = new JButton("Get the time");
+		this.isPolite = new JButton("Check for politeness");
+		this.isPolitical = new JButton("Check for politics");
+		this.askQuestion = new JButton("Ask a question");
+		this.getRandomTopic = new JButton("Get a random topic");
 		this.quit = new JButton("Quit");
 		
 		setupPanel();
@@ -47,12 +47,12 @@ public class Panel extends JPanel
 
 	private void setupPanel()
 	{
-		this.add(button0);
-		this.add(button1);
-		this.add(button2);
-		this.add(button3);
-		this.add(button4);
-		this.add(button5);
+		this.add(getDate);
+		this.add(getTime);
+		this.add(isPolite);
+		this.add(isPolitical);
+		this.add(askQuestion);
+		this.add(getRandomTopic);
 		this.add(quit);
 	}
 }
