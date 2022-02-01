@@ -47,7 +47,12 @@ public class Panel extends JPanel
 
 	private void setupPanel()
 	{
-		// TODO Auto-generated method stub
-		
+		this.add(button0);
+		this.add(button1);
+		this.add(button2);
+		this.add(button3);
+		this.add(button4);
+		this.add(button5);
+		this.add(quit);
 	}
 }
