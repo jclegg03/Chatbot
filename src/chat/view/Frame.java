@@ -20,7 +20,7 @@ public class Frame extends JFrame
 	
 	private void setupFrame()
 	{
-		this.setSize(700, 700);
+		this.setSize(1000, 500);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(panel);

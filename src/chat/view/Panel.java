@@ -45,10 +45,10 @@ public class Panel extends JPanel
 		
 		this.chatArea = new JTextArea(20, 40);
 		this.chatField = new JTextField(40);
-		
+
 		this.chatButtonPanel = new JPanel(new GridLayout(1, 0));
 		this.ioPanel = new JPanel(new GridLayout(1, 0));
-		
+
 		this.dateButton = new JButton("Get the date");
 		this.timeButton = new JButton("Get the time");
 		this.politeButton = new JButton("Check for politeness");
@@ -67,7 +67,23 @@ public class Panel extends JPanel
 
 	private void setupLayout()
 	{
-		
+		//code generated from the wonders of window builder
+		layout.putConstraint(SpringLayout.SOUTH, chatArea, -175, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.WEST, chatButton, 0, SpringLayout.WEST, chatField);
+		layout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatField);
+		layout.putConstraint(SpringLayout.NORTH, ioPanel, 10, SpringLayout.SOUTH, chatButtonPanel);
+		layout.putConstraint(SpringLayout.WEST, ioPanel, 0, SpringLayout.WEST, chatButtonPanel);
+		layout.putConstraint(SpringLayout.EAST, ioPanel, 0, SpringLayout.EAST, chatButtonPanel);
+		layout.putConstraint(SpringLayout.NORTH, chatField, 10, SpringLayout.SOUTH, chatArea);
+		layout.putConstraint(SpringLayout.WEST, chatField, 10, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.EAST, chatField, -10, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.NORTH, chatButtonPanel, 10, SpringLayout.SOUTH, chatButton);
+		layout.putConstraint(SpringLayout.WEST, chatButtonPanel, 0, SpringLayout.WEST, chatButton);
+		layout.putConstraint(SpringLayout.EAST, chatButtonPanel, 0, SpringLayout.EAST, chatButton);
+		layout.putConstraint(SpringLayout.NORTH, chatButton, 10, SpringLayout.SOUTH, chatField);
+		layout.putConstraint(SpringLayout.NORTH, chatArea, 10, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.EAST, chatArea, -10, SpringLayout.EAST, this);
 	}
 
 	private void setupListeners()
