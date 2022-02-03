@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 
 import javax.swing.SpringLayout;
 
@@ -135,12 +136,15 @@ public class Panel extends JPanel
 				app.quit();
 			}
 		});
+		
+		chatButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText()) + "\n"));
 	}
 
 	private void setupPanel()
 	{
 		this.setLayout(layout);
 		this.setBackground(Color.MAGENTA);
+		this.setPreferredSize(new Dimension(800, 600));
 		
 		this.add(chatArea);
 		this.add(chatField);

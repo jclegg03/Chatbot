@@ -37,26 +37,28 @@ public class Controller
 	 */
 	public void start()
 	{
-		view.displayMessage(myChatbot.sayGreeting());
-		view.displayMessage("Loading saved data...");
+		//Old code
+//		view.displayMessage(myChatbot.sayGreeting());
+//		view.displayMessage("Loading saved data...");
+//		
+//		myChatbot.setUserInputs(loadTextToList("user input.txt"));
+//		myChatbot.setChatbotResponses(loadTextToList("chatbot answers.txt"));
+//		
+//		String response = view.askQuestion("What do you want to talk about?");
+//		
+//		while (! response.contentEquals("quit"))
+//		{
+//			view.displayMessage(interactWithChatbot(response));
+//			response = view.askQuestion("Type quit to quit.");
+//		}
+//		
+//		view.displayMessage(myChatbot.sayFarewell());
+//		
+//		view.displayMessage(myChatbot.getMostCommonWord(myChatbot.getUserInputs()));
+//		
+//		saveListAsText(myChatbot.getUserInputs(), "user input.txt");
+//		saveListAsText(myChatbot.getChatbotResponses(), "chatbot answers.txt");
 		
-		myChatbot.setUserInputs(loadTextToList("user input.txt"));
-		myChatbot.setChatbotResponses(loadTextToList("chatbot answers.txt"));
-		
-		String response = view.askQuestion("What do you want to talk about?");
-		
-		while (! response.contentEquals("quit"))
-		{
-			view.displayMessage(interactWithChatbot(response));
-			response = view.askQuestion("Type quit to quit.");
-		}
-		
-		view.displayMessage(myChatbot.sayFarewell());
-		
-		view.displayMessage(myChatbot.getMostCommonWord(myChatbot.getUserInputs()));
-		
-		saveListAsText(myChatbot.getUserInputs(), "user input.txt");
-		saveListAsText(myChatbot.getChatbotResponses(), "chatbot answers.txt");
 	}
 
 	/**
