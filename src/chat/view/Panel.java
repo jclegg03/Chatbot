@@ -40,6 +40,15 @@ public class Panel extends JPanel
 	{
 		super();
 		this.app = app;
+		
+		this.layout = new SpringLayout();
+		
+		this.chatArea = new JTextArea(20, 40);
+		this.chatField = new JTextField(40);
+		
+		this.chatButtonPanel = new JPanel(new GridLayout(1, 0));
+		this.ioPanel = new JPanel(new GridLayout(1, 0));
+		
 		this.dateButton = new JButton("Get the date");
 		this.timeButton = new JButton("Get the time");
 		this.politeButton = new JButton("Check for politeness");
@@ -50,10 +59,6 @@ public class Panel extends JPanel
 		this.saveButton = new JButton("Save");
 		this.loadButton = new JButton("Load");
 		this.chatButton = new JButton("Chat");
-		this.chatArea = new JTextArea();
-		this.chatField = new JTextField();
-		
-		this.layout = new SpringLayout();
 		
 		setupPanel();
 		setupListeners();
