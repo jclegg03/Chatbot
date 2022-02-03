@@ -87,3 +87,6 @@ Please talk to me!
 What is your quest?
 Please talk to me!
 
+
+You said: 
+
