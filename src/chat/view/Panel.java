@@ -123,12 +123,24 @@ public class Panel extends JPanel
 
 	private void setupPanel()
 	{
-		this.add(dateButton);
-		this.add(timeButton);
-		this.add(politeButton);
-		this.add(politicalButton);
-		this.add(questionButton);
-		this.add(randomTopicButton);
-		this.add(quitButton);
+		this.setLayout(layout);
+		this.setBackground(Color.MAGENTA);
+		
+		this.add(chatArea);
+		this.add(chatField);
+		this.add(chatButton);
+		this.add(chatButtonPanel);
+		this.add(ioPanel);
+		
+		chatButtonPanel.add(dateButton);
+		chatButtonPanel.add(timeButton);
+		chatButtonPanel.add(politeButton);
+		chatButtonPanel.add(politicalButton);
+		chatButtonPanel.add(questionButton);
+		chatButtonPanel.add(randomTopicButton);
+		
+		ioPanel.add(saveButton);
+		ioPanel.add(loadButton);
+		ioPanel.add(quitButton);
 	}
 }
