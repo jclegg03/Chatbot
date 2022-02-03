@@ -17,25 +17,43 @@ import chat.controller.Controller;
 public class Panel extends JPanel
 {
 	private Controller app;
-	private JButton getDate;
-	private JButton getTime;
-	private JButton isPolite;
-	private JButton isPolitical;
-	private JButton askQuestion;
-	private JButton getRandomTopic;
-	private JButton quit;
+	
+	private JPanel chatButtonPanel;
+	private JPanel ioPanel;
+	
+	private JButton dateButton;
+	private JButton timeButton;
+	private JButton politeButton;
+	private JButton politicalButton;
+	private JButton questionButton;
+	private JButton randomTopicButton;
+	private JButton quitButton;
+	private JButton saveButton;
+	private JButton loadButton;
+	private JButton chatButton;
+	private JTextArea chatArea;
+	private JTextField chatField;
+	
+	private SpringLayout layout;
 	
 	public Panel(Controller app)
 	{
 		super();
 		this.app = app;
-		this.getDate = new JButton("Get the date");
-		this.getTime = new JButton("Get the time");
-		this.isPolite = new JButton("Check for politeness");
-		this.isPolitical = new JButton("Check for politics");
-		this.askQuestion = new JButton("Ask a question");
-		this.getRandomTopic = new JButton("Get a random topic");
-		this.quit = new JButton("Quit");
+		this.dateButton = new JButton("Get the date");
+		this.timeButton = new JButton("Get the time");
+		this.politeButton = new JButton("Check for politeness");
+		this.politicalButton = new JButton("Check for politics");
+		this.questionButton = new JButton("Ask a question");
+		this.randomTopicButton = new JButton("Get a random topic");
+		this.quitButton = new JButton("Quit");
+		this.saveButton = new JButton("Save");
+		this.loadButton = new JButton("Load");
+		this.chatButton = new JButton("Chat");
+		this.chatArea = new JTextArea();
+		this.chatField = new JTextField();
+		
+		this.layout = new SpringLayout();
 		
 		setupPanel();
 		setupListeners();
@@ -49,7 +67,7 @@ public class Panel extends JPanel
 
 	private void setupListeners()
 	{
-		getDate.addActionListener(new ActionListener()
+		dateButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -57,7 +75,7 @@ public class Panel extends JPanel
 			}
 		});
 		
-		getTime.addActionListener(new ActionListener()
+		timeButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -65,7 +83,7 @@ public class Panel extends JPanel
 			}
 		});
 		
-		isPolite.addActionListener(new ActionListener()
+		politeButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -73,7 +91,7 @@ public class Panel extends JPanel
 			}
 		});
 		
-		askQuestion.addActionListener(new ActionListener()
+		questionButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -81,7 +99,7 @@ public class Panel extends JPanel
 			}
 		});
 		
-		getRandomTopic.addActionListener(new ActionListener()
+		randomTopicButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -89,7 +107,7 @@ public class Panel extends JPanel
 			}
 		});
 		
-		quit.addActionListener(new ActionListener()
+		quitButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -100,12 +118,12 @@ public class Panel extends JPanel
 
 	private void setupPanel()
 	{
-		this.add(getDate);
-		this.add(getTime);
-		this.add(isPolite);
-		this.add(isPolitical);
-		this.add(askQuestion);
-		this.add(getRandomTopic);
-		this.add(quit);
+		this.add(dateButton);
+		this.add(timeButton);
+		this.add(politeButton);
+		this.add(politicalButton);
+		this.add(questionButton);
+		this.add(randomTopicButton);
+		this.add(quitButton);
 	}
 }
