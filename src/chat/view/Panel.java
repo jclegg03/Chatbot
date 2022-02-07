@@ -12,6 +12,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import chat.controller.Controller;
 
@@ -34,6 +35,7 @@ public class Panel extends JPanel
 	private JButton chatButton;
 	private JTextArea chatArea;
 	private JTextField chatField;
+	private JScrollPane chatPane;
 	
 	private SpringLayout layout;
 	
@@ -60,6 +62,7 @@ public class Panel extends JPanel
 		this.saveButton = new JButton("Save");
 		this.loadButton = new JButton("Load");
 		this.chatButton = new JButton("Chat");
+		this.chatPane = new JScrollPane();
 		
 		setupPanel();
 		setupListeners();
@@ -69,22 +72,22 @@ public class Panel extends JPanel
 	private void setupLayout()
 	{
 		//code generated from the wonders of window builder
-		layout.putConstraint(SpringLayout.SOUTH, chatArea, -175, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, chatPane, -175, SpringLayout.SOUTH, this);
 		layout.putConstraint(SpringLayout.WEST, chatButton, 0, SpringLayout.WEST, chatField);
 		layout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatField);
 		layout.putConstraint(SpringLayout.NORTH, ioPanel, 10, SpringLayout.SOUTH, chatButtonPanel);
 		layout.putConstraint(SpringLayout.WEST, ioPanel, 0, SpringLayout.WEST, chatButtonPanel);
 		layout.putConstraint(SpringLayout.EAST, ioPanel, 0, SpringLayout.EAST, chatButtonPanel);
-		layout.putConstraint(SpringLayout.NORTH, chatField, 10, SpringLayout.SOUTH, chatArea);
+		layout.putConstraint(SpringLayout.NORTH, chatField, 10, SpringLayout.SOUTH, chatPane);
 		layout.putConstraint(SpringLayout.WEST, chatField, 10, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.EAST, chatField, -10, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.NORTH, chatButtonPanel, 10, SpringLayout.SOUTH, chatButton);
 		layout.putConstraint(SpringLayout.WEST, chatButtonPanel, 0, SpringLayout.WEST, chatButton);
 		layout.putConstraint(SpringLayout.EAST, chatButtonPanel, 0, SpringLayout.EAST, chatButton);
 		layout.putConstraint(SpringLayout.NORTH, chatButton, 10, SpringLayout.SOUTH, chatField);
-		layout.putConstraint(SpringLayout.NORTH, chatArea, 10, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.EAST, chatArea, -10, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.NORTH, chatPane, 10, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, chatPane, 10, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.EAST, chatPane, -10, SpringLayout.EAST, this);
 	}
 
 	private void setupListeners()
@@ -146,7 +149,7 @@ public class Panel extends JPanel
 		this.setBackground(Color.MAGENTA);
 		this.setPreferredSize(new Dimension(800, 600));
 		
-		this.add(chatArea);
+		this.add(chatPane);
 		this.add(chatField);
 		this.add(chatButton);
 		this.add(chatButtonPanel);

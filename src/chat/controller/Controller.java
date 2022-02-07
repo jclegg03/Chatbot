@@ -58,7 +58,6 @@ public class Controller
 //		
 //		saveListAsText(myChatbot.getUserInputs(), "user input.txt");
 //		saveListAsText(myChatbot.getChatbotResponses(), "chatbot answers.txt");
-		
 	}
 
 	/**
