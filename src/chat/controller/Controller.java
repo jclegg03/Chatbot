@@ -151,16 +151,31 @@ public class Controller
 	
 	public void quit()
 	{
+		save();
 		
 	}
 	
 	public void save()
 	{
-		
+		saveListAsText(myChatbot.getUserInputs(), "user input.txt");
+		saveListAsText(myChatbot.getChatbotResponses(), "chatbot answers.txt");
 	}
 	
-	public void load()
+	public String load()
 	{
+		String data = "";
 		
+		ArrayList <String> userInputs = loadTextToList("user input.txt");
+		ArrayList <String> chatbotResponses = loadTextToList("chatbot answers.txt");
+		myChatbot.setUserInputs(userInputs);
+		myChatbot.setChatbotResponses(chatbotResponses);
+		
+		for(int index = 0; index < userInputs.size() && index < chatbotResponses.size(); index++)
+		{
+			data += userInputs.get(index);
+			data += chatbotResponses.get(index);
+		}
+		
+		return data;
 	}
 }

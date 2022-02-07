@@ -107,7 +107,7 @@ public class Panel extends JPanel
 		
 		saveButton.addActionListener(click -> app.save());
 		
-		loadButton.addActionListener(click -> app.load());
+		loadButton.addActionListener(click -> chatArea.setText(app.load()));
 		
 		chatButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText()) + "\n"));
 	}
