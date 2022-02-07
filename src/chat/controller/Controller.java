@@ -153,4 +153,14 @@ public class Controller
 	{
 		
 	}
+	
+	public void save()
+	{
+		
+	}
+	
+	public void load()
+	{
+		
+	}
 }
