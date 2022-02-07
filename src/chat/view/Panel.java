@@ -64,6 +64,7 @@ public class Panel extends JPanel
 		this.chatButton = new JButton("Chat");
 		this.chatPane = new JScrollPane();
 		
+		setupChatPane();
 		setupPanel();
 		setupListeners();
 		setupLayout();
@@ -92,57 +93,36 @@ public class Panel extends JPanel
 
 	private void setupListeners()
 	{
-		dateButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				app.interactWithChatbot("", 0);
-			}
-		});
+		dateButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 0) + "\n"));
 		
-		timeButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				app.interactWithChatbot("", 1);
-			}
-		});
+		timeButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 1) + "\n"));
 		
-		politeButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				app.interactWithChatbot("", 2);
-			}
-		});
+		politeButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 2) + "\n"));
 		
-		questionButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				app.interactWithChatbot("", 3);
-			}
-		});
+		questionButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 3) + "\n"));
 		
-		randomTopicButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				app.interactWithChatbot("", 4);
-			}
-		});
+		randomTopicButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 4) + "\n"));
 		
-		quitButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				app.quit();
-			}
-		});
+		quitButton.addActionListener(click -> app.quit());
+		
+		saveButton.addActionListener(click -> app.save());
+		
+		loadButton.addActionListener(click -> app.load());
 		
 		chatButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText()) + "\n"));
 	}
 
+	private void setupChatPane()
+	{
+		chatArea.setEditable(false);
+		chatArea.setWrapStyleWord(true);
+		chatArea.setLineWrap(true);
+		
+		chatPane.setViewportView(chatArea);
+		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
+	
 	private void setupPanel()
 	{
 		this.setLayout(layout);
