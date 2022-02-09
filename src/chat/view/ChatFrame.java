@@ -4,16 +4,16 @@ import javax.swing.JFrame;
 
 import chat.controller.Controller;
 
-public class Frame extends JFrame
+public class ChatFrame extends JFrame
 {
 	private Controller app;
-	private Panel panel;
+	private ChatPanel panel;
 	
-	public Frame(Controller app)
+	public ChatFrame(Controller app)
 	{
 		super();
 		this.app = app;
-		this.panel = new Panel(app);
+		this.panel = new ChatPanel(app);
 		
 		setupFrame();
 	}
@@ -23,7 +23,7 @@ public class Frame extends JFrame
 		this.setSize(700, 700);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.add(panel);
+		this.setContentPane(panel);
 		this.setTitle("Chatbot V2.1.0");
 		
 		this.setVisible(true);

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 //import java.util.Scanner;
 import chat.model.Chatbot;
-import chat.view.Frame;
+import chat.view.ChatFrame;
 import chat.view.Popup;
 
 /**
@@ -20,7 +20,7 @@ public class Controller
 {
 	private Chatbot myChatbot;
 	private Popup view;
-	private Frame frame;
+	private ChatFrame frame;
 	
 	/**
 	 * Builds the controller used by the runner. Builds a chatbot to be used and builds a popup to be used for output and input.
@@ -29,7 +29,7 @@ public class Controller
 	{
 		this.myChatbot = new Chatbot("Yaj");
 		this.view = new Popup();
-		this.frame = new Frame(this);
+		this.frame = new ChatFrame(this);
 	}
 	
 	/**

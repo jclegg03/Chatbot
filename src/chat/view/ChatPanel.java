@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 
 import chat.controller.Controller;
 
-public class Panel extends JPanel
+public class ChatPanel extends JPanel
 {
 	private Controller app;
 	
@@ -39,7 +39,7 @@ public class Panel extends JPanel
 	
 	private SpringLayout layout;
 	
-	public Panel(Controller app)
+	public ChatPanel(Controller app)
 	{
 		super();
 		this.app = app;
@@ -99,9 +99,11 @@ public class Panel extends JPanel
 		
 		politeButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 2) + "\n"));
 		
-		questionButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 3) + "\n"));
+		politicalButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 3) + "\n"));
 		
-		randomTopicButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 4) + "\n"));
+		questionButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 4) + "\n"));
+		
+		randomTopicButton.addActionListener(click -> chatArea.append(chatField.getText() + app.interactWithChatbot(chatField.getText(), 5) + "\n"));
 		
 		quitButton.addActionListener(click -> app.quit());
 		
